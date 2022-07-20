@@ -7,85 +7,87 @@ Name             Origin             Length             Attributes
 Linker script and memory map
 
                 0xffff000000080000                . = 0xffff000000080000
+                0xffff000000080000                boot_start = .
 
-.text.boot      0xffff000000080000      0x1a8
+.text.boot      0xffff000000080000      0x1a0
  *(.text.boot)
- .text.boot     0xffff000000080000      0x1a8 build/boot_s.o
+ .text.boot     0xffff000000080000      0x1a0 build/boot_s.o
                 0xffff000000080000                _start
+                0xffff0000000801a0                boot_end = .
 
-.text           0xffff0000000801a8      0x7d0
+.text           0xffff0000000801a0      0x7d0
  *(.text)
- .text          0xffff0000000801a8      0x22c build/pl_uart_c.o
-                0xffff0000000801a8                uart_send
-                0xffff0000000801f8                uart_recv
-                0xffff000000080240                uart_send_string
-                0xffff00000008029c                uart_init
- .text          0xffff0000000803d4      0x1e8 build/memset_c.o
-                0xffff000000080590                memset
- .text          0xffff0000000805bc       0xc0 build/kernel_c.o
-                0xffff0000000805bc                my_ldr_str_test
-                0xffff0000000805f0                my_data_process_inst
-                0xffff00000008064c                kernel_main
- *fill*         0xffff00000008067c        0x4 
- .text          0xffff000000080680       0xe8 build/early_uart_s.o
-                0xffff000000080680                __init_uart
-                0xffff0000000806e4                put_uart
-                0xffff000000080704                put_string_uart
- .text          0xffff000000080768       0x10 build/mm_s.o
-                0xffff000000080768                memzero
- .text          0xffff000000080778       0x18 build/memset_asm_s.o
-                0xffff000000080778                __memset_16bytes
- .text          0xffff000000080790        0x0 build/boot_s.o
- .text          0xffff000000080790      0x1e8 build/asm_test_s.o
-                0xffff000000080790                ldr_test
-                0xffff0000000807d0                my_memcpy_test
-                0xffff0000000807f0                string1
-                0xffff000000080800                my_data
-                0xffff000000080808                access_label_test
-                0xffff00000008082c                add_inst_test
-                0xffff00000008084c                compare_and_return
-                0xffff000000080858                ands_test
-                0xffff00000008086c                bitfield_test
-                0xffff000000080894                cmp_cmn_test
-                0xffff0000000808c4                csel_test
-                0xffff0000000808d8                bl_test
-                0xffff0000000808f0                my_test_data
-                0xffff0000000808f8                adrp_test
+ .text          0xffff0000000801a0      0x22c build/pl_uart_c.o
+                0xffff0000000801a0                uart_send
+                0xffff0000000801f0                uart_recv
+                0xffff000000080238                uart_send_string
+                0xffff000000080294                uart_init
+ .text          0xffff0000000803cc      0x1e8 build/memset_c.o
+                0xffff000000080588                memset
+ .text          0xffff0000000805b4       0xc0 build/kernel_c.o
+                0xffff0000000805b4                my_ldr_str_test
+                0xffff0000000805e8                my_data_process_inst
+                0xffff000000080644                kernel_main
+ *fill*         0xffff000000080674        0x4 
+ .text          0xffff000000080678       0xe8 build/early_uart_s.o
+                0xffff000000080678                __init_uart
+                0xffff0000000806dc                put_uart
+                0xffff0000000806fc                put_string_uart
+ .text          0xffff000000080760       0x10 build/mm_s.o
+                0xffff000000080760                memzero
+ .text          0xffff000000080770       0x18 build/memset_asm_s.o
+                0xffff000000080770                __memset_16bytes
+ .text          0xffff000000080788        0x0 build/boot_s.o
+ .text          0xffff000000080788      0x1e8 build/asm_test_s.o
+                0xffff000000080788                ldr_test
+                0xffff0000000807c8                my_memcpy_test
+                0xffff0000000807e8                string1
+                0xffff0000000807f8                my_data
+                0xffff000000080800                access_label_test
+                0xffff000000080824                add_inst_test
+                0xffff000000080844                compare_and_return
+                0xffff000000080850                ands_test
+                0xffff000000080864                bitfield_test
+                0xffff00000008088c                cmp_cmn_test
+                0xffff0000000808bc                csel_test
+                0xffff0000000808d0                bl_test
+                0xffff0000000808e8                my_test_data
+                0xffff0000000808f0                adrp_test
 
-.iplt           0xffff000000080978        0x0
- .iplt          0xffff000000080978        0x0 build/pl_uart_c.o
+.iplt           0xffff000000080970        0x0
+ .iplt          0xffff000000080970        0x0 build/pl_uart_c.o
 
-.rodata         0xffff000000080978       0x26
+.rodata         0xffff000000080970       0x26
  *(.rodata)
- .rodata        0xffff000000080978       0x11 build/kernel_c.o
- *fill*         0xffff000000080989        0x7 
- .rodata        0xffff000000080990        0xe build/boot_s.o
-                0xffff000000080990                el_string1
+ .rodata        0xffff000000080970       0x11 build/kernel_c.o
+ *fill*         0xffff000000080981        0x7 
+ .rodata        0xffff000000080988        0xe build/boot_s.o
+                0xffff000000080988                el_string1
 
-.eh_frame       0xffff0000000809a0      0x130
- .eh_frame      0xffff0000000809a0       0x80 build/pl_uart_c.o
- .eh_frame      0xffff000000080a20       0x58 build/memset_c.o
+.eh_frame       0xffff000000080998      0x130
+ .eh_frame      0xffff000000080998       0x80 build/pl_uart_c.o
+ .eh_frame      0xffff000000080a18       0x58 build/memset_c.o
                                          0x70 (size before relaxing)
- .eh_frame      0xffff000000080a78       0x58 build/kernel_c.o
+ .eh_frame      0xffff000000080a70       0x58 build/kernel_c.o
                                          0x70 (size before relaxing)
 
-.rela.dyn       0xffff000000080ad0        0x0
- .rela.iplt     0xffff000000080ad0        0x0 build/pl_uart_c.o
+.rela.dyn       0xffff000000080ac8        0x0
+ .rela.iplt     0xffff000000080ac8        0x0 build/pl_uart_c.o
  .rela.text.boot
-                0xffff000000080ad0        0x0 build/pl_uart_c.o
- .rela.text     0xffff000000080ad0        0x0 build/pl_uart_c.o
+                0xffff000000080ac8        0x0 build/pl_uart_c.o
+ .rela.text     0xffff000000080ac8        0x0 build/pl_uart_c.o
 
-.data           0xffff000000080ad0        0x0
+.data           0xffff000000080ac8        0x0
  *(.data)
- .data          0xffff000000080ad0        0x0 build/pl_uart_c.o
- .data          0xffff000000080ad0        0x0 build/memset_c.o
- .data          0xffff000000080ad0        0x0 build/kernel_c.o
- .data          0xffff000000080ad0        0x0 build/early_uart_s.o
- .data          0xffff000000080ad0        0x0 build/mm_s.o
- .data          0xffff000000080ad0        0x0 build/memset_asm_s.o
- .data          0xffff000000080ad0        0x0 build/boot_s.o
- .data          0xffff000000080ad0        0x0 build/asm_test_s.o
-                0xffff000000080ad0                . = ALIGN (0x8)
+ .data          0xffff000000080ac8        0x0 build/pl_uart_c.o
+ .data          0xffff000000080ac8        0x0 build/memset_c.o
+ .data          0xffff000000080ac8        0x0 build/kernel_c.o
+ .data          0xffff000000080ac8        0x0 build/early_uart_s.o
+ .data          0xffff000000080ac8        0x0 build/mm_s.o
+ .data          0xffff000000080ac8        0x0 build/memset_asm_s.o
+ .data          0xffff000000080ac8        0x0 build/boot_s.o
+ .data          0xffff000000080ac8        0x0 build/asm_test_s.o
+                0xffff000000080ac8                . = ALIGN (0x8)
                 0xffff000000082000                . = ALIGN (0x2000)
 
 .igot.plt       0xffff000000082000        0x0
@@ -169,15 +171,15 @@ LOAD linker stubs
  .debug_aranges
                 0x0000000000000160       0x30 build/asm_test_s.o
 
-.debug_line     0x0000000000000000      0x478
+.debug_line     0x0000000000000000      0x477
  .debug_line    0x0000000000000000       0xd3 build/pl_uart_c.o
  .debug_line    0x00000000000000d3       0xe3 build/memset_c.o
  .debug_line    0x00000000000001b6       0x7e build/kernel_c.o
  .debug_line    0x0000000000000234       0x6c build/early_uart_s.o
  .debug_line    0x00000000000002a0       0x3d build/mm_s.o
  .debug_line    0x00000000000002dd       0x47 build/memset_asm_s.o
- .debug_line    0x0000000000000324       0xb2 build/boot_s.o
- .debug_line    0x00000000000003d6       0xa2 build/asm_test_s.o
+ .debug_line    0x0000000000000324       0xb1 build/boot_s.o
+ .debug_line    0x00000000000003d5       0xa2 build/asm_test_s.o
 
 .debug_str      0x0000000000000000      0x1b6
  .debug_str     0x0000000000000000       0xc5 build/pl_uart_c.o

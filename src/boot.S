@@ -122,7 +122,7 @@ el1_entry:
     adr     x1, bss_end
     sub     x1, x1, x0
     bl      memzero
-    mov     sp, #LOW_MEMORY
+   /* mov     sp, #LOW_MEMORY*/
     bl      kernel_main
     b       proc_hang               // should never come here
 
@@ -205,6 +205,7 @@ idlestack:
 	adr	x1, bss_end
 	sub	x1, x1, x0
 	bl 	memzero
+	/*identical mapping*/
 #if 0
 	bl create_page_table
 	ldr x0, =ksram

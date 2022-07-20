@@ -1,7 +1,10 @@
 SECTIONS
 {
 	. = 0xffff000000080000,
+	boot_start = .;
 	.text.boot : { *(.text.boot) }
+	boot_end = .;
+
 	.text : { *(.text) }
 	.rodata : { *(.rodata) }
 	.data : { *(.data) }
