@@ -8,18 +8,50 @@
 $(BUILD_DIR)/%_c.o	Makefile	/^$(BUILD_DIR)\/%_c.o: $(SRC_DIR)\/%.c$/;"	t	language:Make
 $(BUILD_DIR)/%_s.o	Makefile	/^$(BUILD_DIR)\/%_s.o: $(SRC_DIR)\/%.S$/;"	t	language:Make
 .bss	src/linker.ld	/^	.bss : { *(.bss*) } $/;"	S	language:LdScript
+.data	src/linker.ld	/^	.data : { *(.data) }$/;"	S	language:LdScript
 .idle_stack	src/linker.ld	/^	.idle_stack :{$/;"	S	language:LdScript
+.rodata	src/linker.ld	/^	.rodata : { *(.rodata) }$/;"	S	language:LdScript
 .stack	src/linker.ld	/^        .stack : $/;"	S	language:LdScript
+.text	src/linker.ld	/^	.text : { *(.text) }$/;"	S	language:LdScript
+.text.boot	src/linker.ld	/^	.text.boot : { *(.text.boot) }$/;"	S	language:LdScript
 ARMGNU	Makefile	/^ARMGNU ?= aarch64-linux-gnu$/;"	m	language:Make
+ARM_CONTROL	include/asm/arm_local_reg.h	/^#define ARM_CONTROL /;"	d	language:C++
+ARM_LOCAL_FRQ_SOURCE0	include/asm/arm_local_reg.h	/^#define ARM_LOCAL_FRQ_SOURCE0 /;"	d	language:C++
+ARM_LOCAL_FRQ_SOURCE1	include/asm/arm_local_reg.h	/^#define ARM_LOCAL_FRQ_SOURCE1 /;"	d	language:C++
+ARM_LOCAL_FRQ_SOURCE2	include/asm/arm_local_reg.h	/^#define ARM_LOCAL_FRQ_SOURCE2 /;"	d	language:C++
+ARM_LOCAL_FRQ_SOURCE3	include/asm/arm_local_reg.h	/^#define ARM_LOCAL_FRQ_SOURCE3 /;"	d	language:C++
+ARM_LOCAL_IRQ_SOURCE0	include/asm/arm_local_reg.h	/^#define ARM_LOCAL_IRQ_SOURCE0 /;"	d	language:C++
+ARM_LOCAL_IRQ_SOURCE1	include/asm/arm_local_reg.h	/^#define ARM_LOCAL_IRQ_SOURCE1 /;"	d	language:C++
+ARM_LOCAL_IRQ_SOURCE2	include/asm/arm_local_reg.h	/^#define ARM_LOCAL_IRQ_SOURCE2 /;"	d	language:C++
+ARM_LOCAL_IRQ_SOURCE3	include/asm/arm_local_reg.h	/^#define ARM_LOCAL_IRQ_SOURCE3 /;"	d	language:C++
+ARM_TIMER_IRQ	include/asm/irq.h	/^#define ARM_TIMER_IRQ /;"	d	language:C++
 ASMOPS	Makefile	/^ASMOPS = -g -Iinclude $/;"	m	language:Make
 ASM_FILES	Makefile	/^ASM_FILES = $(wildcard $(SRC_DIR)\/*.S)$/;"	m	language:Make
+AXI_IRQ	include/asm/arm_local_reg.h	/^#define AXI_IRQ /;"	d	language:C++
+AXI_QUIET	include/asm/arm_local_reg.h	/^#define AXI_QUIET /;"	d	language:C++
+AXI_QUIET_TIME	include/asm/arm_local_reg.h	/^#define AXI_QUIET_TIME /;"	d	language:C++
+BAD_ERROR	src/entry.S	/^#define BAD_ERROR /;"	d	language:CPreProcessor	file:
+BAD_FIQ	src/entry.S	/^#define BAD_FIQ /;"	d	language:CPreProcessor	file:
+BAD_IRQ	src/entry.S	/^#define BAD_IRQ /;"	d	language:CPreProcessor	file:
+BAD_SYNC	src/entry.S	/^#define BAD_SYNC /;"	d	language:CPreProcessor	file:
 BUILD_DIR	Makefile	/^BUILD_DIR = build$/;"	m	language:Make
+CNTPNSIRQ_Int	include/asm/irq.h	/^#define CNTPNSIRQ_Int /;"	d	language:C++
+CNT_HP_IRQ	include/asm/arm_local_reg.h	/^#define CNT_HP_IRQ /;"	d	language:C++
+CNT_HP_IRQ_FIQ	include/asm/arm_local_reg.h	/^#define CNT_HP_IRQ_FIQ /;"	d	language:C++
+CNT_PNS_IRQ	include/asm/arm_local_reg.h	/^#define CNT_PNS_IRQ /;"	d	language:C++
+CNT_PNS_IRQ_FIQ	include/asm/arm_local_reg.h	/^#define CNT_PNS_IRQ_FIQ /;"	d	language:C++
+CNT_PS_IRQ	include/asm/arm_local_reg.h	/^#define CNT_PS_IRQ /;"	d	language:C++
+CNT_PS_IRQ_FIQ	include/asm/arm_local_reg.h	/^#define CNT_PS_IRQ_FIQ /;"	d	language:C++
+CNT_V_IRQ	include/asm/arm_local_reg.h	/^#define CNT_V_IRQ /;"	d	language:C++
+CNT_V_IRQ_FIQ	include/asm/arm_local_reg.h	/^#define CNT_V_IRQ_FIQ /;"	d	language:C++
 CONFIG_EXEC_ADDR	src/boot.S	/^#define CONFIG_EXEC_ADDR /;"	d	language:CPreProcessor	file:
 CONFIG_LOAD_ADDR	src/boot.S	/^#define CONFIG_LOAD_ADDR /;"	d	language:CPreProcessor	file:
+CONFIG_LOG_BUF_SHIFT	src/printk.c	/^#define CONFIG_LOG_BUF_SHIFT /;"	d	language:C	file:
 CONFIG_PAGE_SHIFT	src/boot.S	/^#define CONFIG_PAGE_SHIFT /;"	d	language:CPreProcessor	file:
 CONFIG_PAGE_SIZE	src/boot.S	/^#define CONFIG_PAGE_SIZE /;"	d	language:CPreProcessor	file:
 CONFIG_STACK_PAGES	src/boot.S	/^#define CONFIG_STACK_PAGES /;"	d	language:CPreProcessor	file:
 CONFIG_STACK_SIZE	src/boot.S	/^#define CONFIG_STACK_SIZE /;"	d	language:CPreProcessor	file:
+CONSOLE_PRINT_BUFFER_SIZE	src/printk.c	/^#define CONSOLE_PRINT_BUFFER_SIZE /;"	d	language:C	file:
 CONTROL_A	src/boot.S	/^#define CONTROL_A /;"	d	language:CPreProcessor	file:
 CONTROL_C	src/boot.S	/^#define CONTROL_C /;"	d	language:CPreProcessor	file:
 CONTROL_E0E	src/boot.S	/^#define CONTROL_E0E /;"	d	language:CPreProcessor	file:
@@ -28,11 +60,20 @@ CONTROL_I	src/boot.S	/^#define CONTROL_I /;"	d	language:CPreProcessor	file:
 CONTROL_M	src/boot.S	/^#define CONTROL_M /;"	d	language:CPreProcessor	file:
 CONTROL_SA	src/boot.S	/^#define CONTROL_SA /;"	d	language:CPreProcessor	file:
 CONTROL_SA0	src/boot.S	/^#define CONTROL_SA0 /;"	d	language:CPreProcessor	file:
+CORE0_INT_CTR	include/asm/irq.h	/^#define CORE0_INT_CTR /;"	d	language:C++
+CORE0_INT_SOURCE	include/asm/irq.h	/^#define CORE0_INT_SOURCE /;"	d	language:C++
+CORE_IRQ	include/asm/arm_local_reg.h	/^#define CORE_IRQ /;"	d	language:C++
+CORE_IRQ_CONTROL	include/asm/arm_local_reg.h	/^#define CORE_IRQ_CONTROL /;"	d	language:C++
 C_FILES	Makefile	/^C_FILES = $(wildcard $(SRC_DIR)\/*.c)$/;"	m	language:Make
 CurrentEL_EL1	include/sysregs.h	/^#define CurrentEL_EL1 /;"	d	language:C++
 CurrentEL_EL2	include/sysregs.h	/^#define CurrentEL_EL2 /;"	d	language:C++
 CurrentEL_EL3	include/sysregs.h	/^#define CurrentEL_EL3 /;"	d	language:C++
 DEP_FILES	Makefile	/^DEP_FILES = $(OBJ_FILES:%.o=%.d)$/;"	m	language:Make
+ENABLE_IRQS_0	include/asm/irq.h	/^#define ENABLE_IRQS_0	/;"	d	language:C++
+ENABLE_IRQS_1	include/asm/irq.h	/^#define ENABLE_IRQS_1	/;"	d	language:C++
+ENABLE_IRQS_2	include/asm/irq.h	/^#define ENABLE_IRQS_2	/;"	d	language:C++
+FIQ_CONTROL	include/asm/irq.h	/^#define FIQ_CONTROL	/;"	d	language:C++
+GENERIC_TIMER_IRQ	include/asm/irq.h	/^#define GENERIC_TIMER_IRQ /;"	d	language:C++
 GPCLR0	include/asm/gpio.h	/^#define GPCLR0 /;"	d	language:C++
 GPCLR0	include/gpio.h	/^#define GPCLR0 /;"	d	language:C++
 GPFSEL1	include/asm/gpio.h	/^#define GPFSEL1 /;"	d	language:C++
@@ -47,8 +88,20 @@ GPSET0	include/asm/gpio.h	/^#define GPSET0 /;"	d	language:C++
 GPSET0	include/gpio.h	/^#define GPSET0 /;"	d	language:C++
 HCR_HOST_NVHE_FLAGS	include/sysregs.h	/^#define HCR_HOST_NVHE_FLAGS /;"	d	language:C++
 HCR_RW	include/sysregs.h	/^#define HCR_RW /;"	d	language:C++
+IRQ_BASIC_PENDING	include/asm/irq.h	/^#define IRQ_BASIC_PENDING	/;"	d	language:C++
+IRQ_PENDING_0	include/asm/irq.h	/^#define IRQ_PENDING_0 /;"	d	language:C++
+IRQ_PENDING_1	include/asm/irq.h	/^#define IRQ_PENDING_1	/;"	d	language:C++
+IRQ_PENDING_2	include/asm/irq.h	/^#define IRQ_PENDING_2	/;"	d	language:C++
 ISB	src/boot.S	/^ISB$/;"	l	language:Asm
+KB	src/device.c	/^#define KB /;"	d	language:C	file:
+LEFT	src/printk.c	/^#define LEFT	/;"	d	language:C	file:
+LOCAL_TIMER_CONTROL	include/asm/arm_local_reg.h	/^#define LOCAL_TIMER_CONTROL /;"	d	language:C++
+LOCAL_TIMER_INT	include/asm/irq.h	/^#define LOCAL_TIMER_INT /;"	d	language:C++
+LOCAL_TIMER_IRQ	include/asm/arm_local_reg.h	/^#define LOCAL_TIMER_IRQ /;"	d	language:C++
+LOG_BUF_LEN	src/printk.c	/^#define LOG_BUF_LEN /;"	d	language:C	file:
 LOW_MEMORY	include/mm.h	/^#define LOW_MEMORY /;"	d	language:C++
+MAILBOX_IRQ_SHIFT	include/asm/arm_local_reg.h	/^#define MAILBOX_IRQ_SHIFT /;"	d	language:C++
+MB	src/device.c	/^#define MB /;"	d	language:C	file:
 MRS	src/boot.S	/^MRS X0,SCTLR_EL2$/;"	l	language:Asm
 MSR	src/boot.S	/^MSR SCTLR_EL2,X0$/;"	l	language:Asm
 MY_LABEL	src/asm_test.S	/^#define MY_LABEL /;"	d	language:CPreProcessor	file:
@@ -56,6 +109,13 @@ OBJ_FILES	Makefile	/^OBJ_FILES = $(C_FILES:$(SRC_DIR)\/%.c=$(BUILD_DIR)\/%_c.o)$
 PAGE_SHIFT	include/mm.h	/^#define PAGE_SHIFT	/;"	d	language:C++
 PAGE_SIZE	include/mm.h	/^#define PAGE_SIZE /;"	d	language:C++
 PBASE	include/asm/base.h	/^#define PBASE /;"	d	language:C++
+PERI_IRQ_ROUTE0	include/asm/arm_local_reg.h	/^#define PERI_IRQ_ROUTE0 /;"	d	language:C++
+PLUS	src/printk.c	/^#define PLUS	/;"	d	language:C	file:
+PMU_CONTROL_CLR	include/asm/arm_local_reg.h	/^#define PMU_CONTROL_CLR /;"	d	language:C++
+PMU_CONTROL_SET	include/asm/arm_local_reg.h	/^#define PMU_CONTROL_SET /;"	d	language:C++
+PMU_IRQ	include/asm/arm_local_reg.h	/^#define PMU_IRQ /;"	d	language:C++
+PRINTK_STATUS_DOWN	src/printk.c	/^	PRINTK_STATUS_DOWN,$/;"	e	language:C	enum:printk_status	file:
+PRINTK_STATUS_READY	src/printk.c	/^	PRINTK_STATUS_READY,$/;"	e	language:C	enum:printk_status	file:
 SCTLR_EE_LITTLE_ENDIAN	include/sysregs.h	/^#define SCTLR_EE_LITTLE_ENDIAN /;"	d	language:C++
 SCTLR_ELx_C	include/sysregs.h	/^#define SCTLR_ELx_C /;"	d	language:C++
 SCTLR_ELx_M	include/sysregs.h	/^#define SCTLR_ELx_M	/;"	d	language:C++
@@ -66,13 +126,53 @@ SECTION_SHIFT	include/mm.h	/^#define SECTION_SHIFT	/;"	d	language:C++
 SECTION_SIZE	include/mm.h	/^#define SECTION_SIZE	/;"	d	language:C++
 SHARED_BSS	device.h	/^#define SHARED_BSS /;"	d	language:C++
 SHARED_RO	device.h	/^#define SHARED_RO /;"	d	language:C++
+SIGN	src/printk.c	/^#define SIGN	/;"	d	language:C	file:
+SMALL	src/printk.c	/^#define SMALL	/;"	d	language:C	file:
+SPACE	src/printk.c	/^#define SPACE	/;"	d	language:C	file:
+SPECIAL	src/printk.c	/^#define SPECIAL	/;"	d	language:C	file:
 SPSR_EL1	include/sysregs.h	/^#define SPSR_EL1 /;"	d	language:C++
 SPSR_EL1h	include/sysregs.h	/^#define SPSR_EL1h /;"	d	language:C++
 SPSR_EL2	include/sysregs.h	/^#define SPSR_EL2 /;"	d	language:C++
 SPSR_EL2h	include/sysregs.h	/^#define SPSR_EL2h /;"	d	language:C++
 SPSR_MASK_ALL	include/sysregs.h	/^#define SPSR_MASK_ALL /;"	d	language:C++
 SRC_DIR	Makefile	/^SRC_DIR = src$/;"	m	language:Make
+SYSTEM_TIMER0_IRQ	include/asm/irq.h	/^#define SYSTEM_TIMER0_IRQ /;"	d	language:C++
+SYSTEM_TIMER1_IRQ	include/asm/irq.h	/^#define SYSTEM_TIMER1_IRQ /;"	d	language:C++
+SYSTEM_TIMER_IRQ_0	include/asm/irq.h	/^#define SYSTEM_TIMER_IRQ_0	/;"	d	language:C++
+SYSTEM_TIMER_IRQ_1	include/asm/irq.h	/^#define SYSTEM_TIMER_IRQ_1	/;"	d	language:C++
+SYSTEM_TIMER_IRQ_2	include/asm/irq.h	/^#define SYSTEM_TIMER_IRQ_2	/;"	d	language:C++
+SYSTEM_TIMER_IRQ_3	include/asm/irq.h	/^#define SYSTEM_TIMER_IRQ_3	/;"	d	language:C++
+S_FP	src/entry.S	/^#define S_FP /;"	d	language:CPreProcessor	file:
+S_FRAME_SIZE	src/entry.S	/^#define S_FRAME_SIZE /;"	d	language:CPreProcessor	file:
+S_LR	src/entry.S	/^#define S_LR /;"	d	language:CPreProcessor	file:
+S_PC	src/entry.S	/^#define S_PC /;"	d	language:CPreProcessor	file:
+S_PSTATE	src/entry.S	/^#define S_PSTATE /;"	d	language:CPreProcessor	file:
+S_SP	src/entry.S	/^#define S_SP /;"	d	language:CPreProcessor	file:
+S_X0	src/entry.S	/^#define S_X0 /;"	d	language:CPreProcessor	file:
+S_X1	src/entry.S	/^#define S_X1 /;"	d	language:CPreProcessor	file:
+S_X10	src/entry.S	/^#define S_X10 /;"	d	language:CPreProcessor	file:
+S_X12	src/entry.S	/^#define S_X12 /;"	d	language:CPreProcessor	file:
+S_X14	src/entry.S	/^#define S_X14 /;"	d	language:CPreProcessor	file:
+S_X16	src/entry.S	/^#define S_X16 /;"	d	language:CPreProcessor	file:
+S_X18	src/entry.S	/^#define S_X18 /;"	d	language:CPreProcessor	file:
+S_X2	src/entry.S	/^#define S_X2 /;"	d	language:CPreProcessor	file:
+S_X20	src/entry.S	/^#define S_X20 /;"	d	language:CPreProcessor	file:
+S_X22	src/entry.S	/^#define S_X22 /;"	d	language:CPreProcessor	file:
+S_X24	src/entry.S	/^#define S_X24 /;"	d	language:CPreProcessor	file:
+S_X26	src/entry.S	/^#define S_X26 /;"	d	language:CPreProcessor	file:
+S_X28	src/entry.S	/^#define S_X28 /;"	d	language:CPreProcessor	file:
+S_X3	src/entry.S	/^#define S_X3 /;"	d	language:CPreProcessor	file:
+S_X4	src/entry.S	/^#define S_X4 /;"	d	language:CPreProcessor	file:
+S_X5	src/entry.S	/^#define S_X5 /;"	d	language:CPreProcessor	file:
+S_X6	src/entry.S	/^#define S_X6 /;"	d	language:CPreProcessor	file:
+S_X7	src/entry.S	/^#define S_X7 /;"	d	language:CPreProcessor	file:
+S_X8	src/entry.S	/^#define S_X8 /;"	d	language:CPreProcessor	file:
 TABLE_SHIFT	include/mm.h	/^#define TABLE_SHIFT /;"	d	language:C++
+TIMER_CNTRL0	include/asm/arm_local_reg.h	/^#define TIMER_CNTRL0 /;"	d	language:C++
+TIMER_CNTRL1	include/asm/arm_local_reg.h	/^#define TIMER_CNTRL1 /;"	d	language:C++
+TIMER_CNTRL2	include/asm/arm_local_reg.h	/^#define TIMER_CNTRL2 /;"	d	language:C++
+TIMER_CNTRL3	include/asm/arm_local_reg.h	/^#define TIMER_CNTRL3 /;"	d	language:C++
+TIMER_IRQ	include/asm/arm_local_reg.h	/^#define TIMER_IRQ /;"	d	language:C++
 U_BASE	include/asm/pl_uart.h	/^#define U_BASE /;"	d	language:C++
 U_BASE	include/pl_uart.h	/^#define U_BASE /;"	d	language:C++
 U_CR_REG	include/asm/pl_uart.h	/^#define U_CR_REG /;"	d	language:C++
@@ -89,6 +189,7 @@ U_IMSC_REG	include/asm/pl_uart.h	/^#define U_IMSC_REG /;"	d	language:C++
 U_IMSC_REG	include/pl_uart.h	/^#define U_IMSC_REG /;"	d	language:C++
 U_LCRH_REG	include/asm/pl_uart.h	/^#define U_LCRH_REG /;"	d	language:C++
 U_LCRH_REG	include/pl_uart.h	/^#define U_LCRH_REG /;"	d	language:C++
+ZEROPAD	src/printk.c	/^#define ZEROPAD	/;"	d	language:C	file:
 _MINI_UART_H	include/uart.h	/^#define	_MINI_UART_H$/;"	d	language:C++
 _MM_H	include/mm.h	/^#define	_MM_H$/;"	d	language:C++
 _P_BASE_H	include/asm/base.h	/^#define	_P_BASE_H$/;"	d	language:C++
@@ -114,10 +215,13 @@ adrp_test	src/asm_test.S	/^adrp_test:$/;"	l	language:Asm
 all	Makefile	/^all : benos.bin$/;"	t	language:Make
 and	src/boot.S	/^and x0,x0,x1$/;"	l	language:Asm
 ands_test	src/asm_test.S	/^ands_test:$/;"	l	language:Asm
+bad_mode	src/kernel.c	/^void bad_mode(struct pt_regs *regs, int reason, unsigned int esr)$/;"	f	language:C	typeref:typename:void	signature:(struct pt_regs * regs,int reason,unsigned int esr)
+bad_mode_handler	src/kernel.c	/^static const char * const bad_mode_handler[] = {$/;"	v	language:C	typeref:typename:const char * const[]	file:
 benos.bin	Makefile	/^benos.bin: $(SRC_DIR)\/linker.ld $(OBJ_FILES)$/;"	t	language:Make
 bitfield_test	src/asm_test.S	/^bitfield_test:$/;"	l	language:Asm
 bl_test	src/asm_test.S	/^bl_test:$/;"	l	language:Asm
 board	Makefile	/^board ?= rpi4$/;"	m	language:Make
+boot_end	src/linker.ld	/^	boot_end = .;$/;"	s	language:LdScript
 bss_begin	src/linker.ld	/^	bss_begin = .;$/;"	s	language:LdScript
 bss_end	src/linker.ld	/^	bss_end = .;$/;"	s	language:LdScript
 clean	Makefile	/^clean :$/;"	t	language:Make
@@ -129,21 +233,44 @@ debug	Makefile	/^debug:$/;"	t	language:Make
 delay	include/io.h	/^static inline void delay(unsigned int n)$/;"	f	language:C++	typeref:typename:void	signature:(unsigned int n)
 directmap	device.h	/^    unsigned int directmap;$/;"	m	language:C++	struct:_region	typeref:typename:unsigned int
 dmb	include/io.h	/^#define dmb(/;"	d	language:C++	signature:()
+do_div	src/printk.c	/^#define do_div(/;"	d	language:C	file:	signature:(n,base)
+el0_error_invalid	src/entry.S	/^el0_error_invalid:$/;"	l	language:Asm
+el0_fiq_invalid	src/entry.S	/^el0_fiq_invalid:$/;"	l	language:Asm
+el0_irq_invalid	src/entry.S	/^el0_irq_invalid:$/;"	l	language:Asm
+el0_sync_invalid	src/entry.S	/^el0_sync_invalid:$/;"	l	language:Asm
 el1_entry	src/boot.S	/^el1_entry:$/;"	l	language:Asm
+el1_error_invalid	src/entry.S	/^el1_error_invalid:$/;"	l	language:Asm
+el1_fiq_invalid	src/entry.S	/^el1_fiq_invalid:$/;"	l	language:Asm
+el1_irq	src/entry.S	/^el1_irq:$/;"	l	language:Asm
+el1_irq_invalid	src/entry.S	/^el1_irq_invalid:$/;"	l	language:Asm
+el1_sync_invalid	src/entry.S	/^el1_sync_invalid:$/;"	l	language:Asm
 el2_entry	src/boot.S	/^el2_entry:$/;"	l	language:Asm
 el3_entry	src/boot.S	/^el3_entry:$/;"	l	language:Asm
 el_string1	src/boot.S	/^el_string1:$/;"	l	language:Asm
+g_printk_status	src/printk.c	/^static enum printk_status g_printk_status = PRINTK_STATUS_DOWN;$/;"	v	language:C	typeref:enum:printk_status	file:
+g_record	src/printk.c	/^static char *g_record = log_buf;$/;"	v	language:C	typeref:typename:char *	file:
+g_record_len	src/printk.c	/^static unsigned long g_record_len;$/;"	v	language:C	typeref:typename:unsigned long	file:
 get_idle_stack_x0_to_x3	src/boot.S	/^get_idle_stack_x0_to_x3:	\/* X0:CPUID X1:STACK X2:STACK_SIZE *\/$/;"	l	language:Asm
 idlestack	src/boot.S	/^idlestack:$/;"	l	language:Asm
 init_pg_dir	src/linker.ld	/^	init_pg_dir = .;$/;"	s	language:LdScript
+init_printk_done	src/printk.c	/^void init_printk_done(void)$/;"	f	language:C	typeref:typename:void	signature:(void)
+inv_entry	src/entry.S	/^	.macro inv_entry el, reason$/;"	m	language:Asm
+irq_handle	src/irq.c	/^void irq_handle(void)$/;"	f	language:C	typeref:typename:void	signature:(void)
+is_digit	src/printk.c	/^#define is_digit(/;"	d	language:C	file:	signature:(c)
 k_stack_end	src/linker.ld	/^     k_stack_end = .;$/;"	s	language:LdScript
 k_stack_start	src/linker.ld	/^        k_stack_start = .;$/;"	s	language:LdScript
+kernel_entry	src/entry.S	/^	.macro kernel_entry$/;"	m	language:Asm
+kernel_entry	src/entry.S	/^kernel_entry:$/;"	l	language:Asm
+kernel_exit	src/entry.S	/^	.macro kernel_exit$/;"	m	language:Asm
+kernel_exit	src/entry.S	/^kernel_exit:$/;"	l	language:Asm
 kernel_main	src/kernel.c	/^void kernel_main(void)$/;"	f	language:C	typeref:typename:void	signature:(void)
 ksdev	device.c	/^const region_t SHARED_RO ksdev[] = {$/;"	v	language:C	typeref:typename:const region_t SHARED_RO[]
 ksram	device.c	/^const region_t SHARED_RO ksram[] = {$/;"	v	language:C	typeref:typename:const region_t SHARED_RO[]
 ldr	src/boot.S	/^ldr     x1 , =~(1 << CONTROL_M  | 1 << CONTROL_C | 1 << CONTROL_I)$/;"	l	language:Asm
 ldr_test	src/asm_test.S	/^ldr_test:$/;"	l	language:Asm
+log_buf	src/printk.c	/^static char log_buf[LOG_BUF_LEN];$/;"	v	language:C	typeref:typename:char[]	file:
 master	src/boot.S	/^master:$/;"	l	language:Asm
+memcpy	src/string.c	/^void *memcpy(void *dest, const void *src, size_t count)$/;"	f	language:C	typeref:typename:void *	signature:(void * dest,const void * src,size_t count)
 memset	src/memset.c	/^void *memset(void *s, int c, size_t count)$/;"	f	language:C	typeref:typename:void *	signature:(void * s,int c,size_t count)
 memzero	src/mm.S	/^memzero:$/;"	l	language:Asm
 my_data	src/asm_test.S	/^my_data:$/;"	l	language:Asm
@@ -152,26 +279,41 @@ my_label	src/asm_test.S	/^#define my_label /;"	d	language:CPreProcessor	file:
 my_ldr_str_test	src/kernel.c	/^void my_ldr_str_test(void)$/;"	f	language:C	typeref:typename:void	signature:(void)
 my_memcpy_test	src/asm_test.S	/^my_memcpy_test:$/;"	l	language:Asm
 my_test_data	src/asm_test.S	/^my_test_data:$/;"	l	language:Asm
+myprintf	src/printk.c	/^int myprintf(char *string, unsigned int size,$/;"	f	language:C	typeref:typename:int	signature:(char * string,unsigned int size,const char * fmt,va_list arg)
+number	src/printk.c	/^static char *number(char *str, unsigned long num, int base, int size, int precision$/;"	f	language:C	typeref:typename:char *	file:	signature:(char * str,unsigned long num,int base,int size,int precision,int type)
+panic	src/kernel.c	/^void panic(void)$/;"	f	language:C	typeref:typename:void	signature:(void)
 pbase	device.h	/^    uint64_t pbase;$/;"	m	language:C++	struct:_region	typeref:typename:uint64_t
+print_buf	src/printk.c	/^static char print_buf[CONSOLE_PRINT_BUFFER_SIZE];$/;"	v	language:C	typeref:typename:char[]	file:
 print_el	src/boot.S	/^print_el:$/;"	l	language:Asm
+printk	src/printk.c	/^int printk(const char *fmt, ...)$/;"	f	language:C	typeref:typename:int	signature:(const char * fmt,...)
+printk_status	src/printk.c	/^enum printk_status {$/;"	g	language:C	file:
 proc_hang	src/boot.S	/^proc_hang: $/;"	l	language:Asm
 put_string_uart	src/early_uart.S	/^put_string_uart:$/;"	l	language:Asm
 put_uart	src/early_uart.S	/^put_uart:$/;"	l	language:Asm
+putchar	src/pl_uart.c	/^void putchar(char c)$/;"	f	language:C	typeref:typename:void	signature:(char c)
+read_sysreg	include/io.h	/^#define read_sysreg(/;"	d	language:C++	signature:(reg)
 read_sysreg	include/sysregs.h	/^#define read_sysreg(/;"	d	language:C++	signature:(reg)
 readl	include/io.h	/^#define readl(/;"	d	language:C++	signature:(c)
 readl	include/io.h	/^static inline unsigned int readl(unsigned int addr)$/;"	f	language:C++	typeref:typename:unsigned int	signature:(unsigned int addr)
 region_t	device.h	/^}region_t;$/;"	t	language:C++	typeref:struct:_region
 run	Makefile	/^run:$/;"	t	language:Make
+scan_number	src/printk.c	/^static const char *scan_number(const char *string, int *number)$/;"	f	language:C	typeref:typename:const char *	file:	signature:(const char * string,int * number)
 set_mmu	src/boot.S	/^set_mmu:$/;"	l	language:Asm
 size	device.h	/^    uint64_t size;$/;"	m	language:C++	struct:_region	typeref:typename:uint64_t
 size_t	src/memset.c	/^typedef unsigned int size_t;$/;"	t	language:C	typeref:typename:unsigned int	file:
+size_t	src/string.c	/^typedef unsigned int size_t;$/;"	t	language:C	typeref:typename:unsigned int	file:
 string1	src/asm_test.S	/^string1:$/;"	l	language:Asm
+strlen	src/string.c	/^size_t strlen(const char *s)$/;"	f	language:C	typeref:typename:size_t	signature:(const char * s)
 tempstack	src/boot.S	/^tempstack:$/;"	l	language:Asm
+trigger_alignment	src/entry.S	/^trigger_alignment:$/;"	l	language:Asm
 uart_init	src/pl_uart.c	/^void uart_init(void)$/;"	f	language:C	typeref:typename:void	signature:(void)
 uart_recv	src/pl_uart.c	/^char uart_recv(void)$/;"	f	language:C	typeref:typename:char	signature:(void)
 uart_send	src/pl_uart.c	/^void uart_send(char c)$/;"	f	language:C	typeref:typename:void	signature:(char c)
 uart_send_string	src/pl_uart.c	/^void uart_send_string(char *str)$/;"	f	language:C	typeref:typename:void	signature:(char * str)
 vbase	device.h	/^    uint64_t vbase;$/;"	m	language:C++	struct:_region	typeref:typename:uint64_t
+vectors	src/entry.S	/^vectors:$/;"	l	language:Asm
+vtentry	src/entry.S	/^	.macro vtentry label$/;"	m	language:Asm
+write_sysreg	include/io.h	/^#define write_sysreg(/;"	d	language:C++	signature:(val,reg)
 write_sysreg	include/sysregs.h	/^#define write_sysreg(/;"	d	language:C++	signature:(val,reg)
 writel	include/io.h	/^#define writel(/;"	d	language:C++	signature:(v,c)
 writel	include/io.h	/^static inline void writel(unsigned int value, unsigned int addr)$/;"	f	language:C++	typeref:typename:void	signature:(unsigned int value,unsigned int addr)

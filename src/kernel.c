@@ -1,9 +1,15 @@
 #include "uart.h"
+#include "io.h"
 
 extern void ldr_test(void);
 extern void my_memcpy_test(void);
 extern void access_label_test(void);
-
+static const char * const bad_mode_handler[] = {
+	"Sync Abort",
+	"IRQ",
+	"FIQ",
+	"SError"
+};
 void my_ldr_str_test(void)
 {
 
@@ -26,6 +32,31 @@ extern void cmp_cmn_test(void);
 extern unsigned long csel_test(unsigned long r, unsigned long b);
 extern void bl_test(void);
 extern void adrp_test(void);
+
+void panic(void)
+{
+        printk("Kernel panic\n");
+
+	while (1)
+		;
+}
+
+void bad_mode(struct pt_regs *regs, int reason, unsigned int esr)
+{
+#if 0
+	printk("Bad mode for %s handler detected, far:0x%x esr:0x%x - %s\n",
+			bad_mode_handler[reason], read_sysreg(far_el1),
+			esr, esr_get_class_string(esr));
+
+	parse_esr(esr);
+
+	panic();
+#endif
+}
+
+
+
+
 void my_data_process_inst(void)
 {
 	unsigned long ret;
