@@ -44,7 +44,9 @@ void panic(void)
 void bad_mode(struct pt_regs *regs, int reason, unsigned int esr)
 {
 #if 1
-	uart_send_string("bad mode\n");
+	//uart_send_string("bad mode\n");
+	printk("printk bad mode\n");
+
 	while(1);
 	
 	//printk("Bad mode for %s handler detected, far:0x%x esr:0x%x - %s\n",
@@ -83,7 +85,9 @@ void my_data_process_inst(void)
 void kernel_main(void)
 {
 	uart_init();
+	init_printk_done();
 	uart_send_string("Welcome BenOS!\r\n");
+	printk("printk init done\n");
 	trigger_alignment();
 
 	/* my test*/
