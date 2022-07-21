@@ -9,114 +9,116 @@ Linker script and memory map
                 0xffff000000080000                . = 0xffff000000080000
                 0xffff000000080000                boot_start = .
 
-.text.boot      0xffff000000080000      0x1a0
+.text.boot      0xffff000000080000      0x1c8
  *(.text.boot)
- .text.boot     0xffff000000080000      0x1a0 build/boot_s.o
+ .text.boot     0xffff000000080000      0x1c8 build/boot_s.o
                 0xffff000000080000                _start
-                0xffff0000000801a0                boot_end = .
+                0xffff0000000801c8                boot_end = .
 
-.text           0xffff000000080800     0x3240
+.text           0xffff000000080800     0x2a30
  *(.text)
- .text          0xffff000000080800     0x11c4 build/printk_c.o
+ .text          0xffff000000080800     0x11a0 build/printk_c.o
                 0xffff000000080c58                myprintf
                 0xffff0000000817c0                init_printk_done
                 0xffff000000081848                printk
- .text          0xffff0000000819c4        0x8 build/irq_c.o
-                0xffff0000000819c4                irq_handle
- .text          0xffff0000000819cc       0xa8 build/string_c.o
-                0xffff0000000819cc                strlen
-                0xffff000000081a10                memcpy
- .text          0xffff000000081a74      0x260 build/pl_uart_c.o
-                0xffff000000081a74                uart_send
-                0xffff000000081ac4                uart_recv
-                0xffff000000081b0c                uart_send_string
-                0xffff000000081b68                uart_init
-                0xffff000000081ca0                putchar
- .text          0xffff000000081cd4        0x0 build/device_c.o
- .text          0xffff000000081cd4      0x1e8 build/memset_c.o
-                0xffff000000081e90                memset
- .text          0xffff000000081ebc       0xf4 build/kernel_c.o
-                0xffff000000081ebc                my_ldr_str_test
-                0xffff000000081ef0                panic
-                0xffff000000081f08                bad_mode
-                0xffff000000081f24                my_data_process_inst
-                0xffff000000081f80                kernel_main
+ .text          0xffff0000000819a0       0x20 build/irq_c.o
+                0xffff0000000819a0                irq_handle
+ .text          0xffff0000000819c0       0xa8 build/string_c.o
+                0xffff0000000819c0                strlen
+                0xffff000000081a04                memcpy
+ .text          0xffff000000081a68      0x260 build/pl_uart_c.o
+                0xffff000000081a68                uart_send
+                0xffff000000081ab8                uart_recv
+                0xffff000000081b00                uart_send_string
+                0xffff000000081b5c                uart_init
+                0xffff000000081c94                putchar
+ .text          0xffff000000081cc8        0x0 build/device_c.o
+ .text          0xffff000000081cc8      0x1e8 build/memset_c.o
+                0xffff000000081e84                memset
+ .text          0xffff000000081eb0      0x100 build/kernel_c.o
+                0xffff000000081eb0                my_ldr_str_test
+                0xffff000000081ee4                panic
+                0xffff000000081efc                bad_mode
+                0xffff000000081f20                my_data_process_inst
+                0xffff000000081f7c                kernel_main
  .text          0xffff000000081fb0       0xe8 build/early_uart_s.o
                 0xffff000000081fb0                __init_uart
                 0xffff000000082014                put_uart
                 0xffff000000082034                put_string_uart
  *fill*         0xffff000000082098      0x768 
- .text          0xffff000000082800     0x1030 build/entry_s.o
-                0xffff000000083000                vectors
-                0xffff00000008381c                trigger_alignment
- .text          0xffff000000083830       0x10 build/mm_s.o
-                0xffff000000083830                memzero
- .text          0xffff000000083840       0x18 build/memset_asm_s.o
-                0xffff000000083840                __memset_16bytes
- .text          0xffff000000083858        0x0 build/boot_s.o
- .text          0xffff000000083858      0x1e8 build/asm_test_s.o
-                0xffff000000083858                ldr_test
-                0xffff000000083898                my_memcpy_test
-                0xffff0000000838b8                string1
-                0xffff0000000838c8                my_data
-                0xffff0000000838d0                access_label_test
-                0xffff0000000838f4                add_inst_test
-                0xffff000000083914                compare_and_return
-                0xffff000000083920                ands_test
-                0xffff000000083934                bitfield_test
-                0xffff00000008395c                cmp_cmn_test
-                0xffff00000008398c                csel_test
-                0xffff0000000839a0                bl_test
-                0xffff0000000839b8                my_test_data
-                0xffff0000000839c0                adrp_test
+ .text          0xffff000000082800      0x820 build/entry_s.o
+                0xffff000000082800                vectors
+                0xffff000000083006                trigger_alignment
+ .text          0xffff000000083020       0x10 build/mm_s.o
+                0xffff000000083020                memzero
+ .text          0xffff000000083030       0x18 build/memset_asm_s.o
+                0xffff000000083030                __memset_16bytes
+ .text          0xffff000000083048        0x0 build/boot_s.o
+ .text          0xffff000000083048      0x1e8 build/asm_test_s.o
+                0xffff000000083048                ldr_test
+                0xffff000000083088                my_memcpy_test
+                0xffff0000000830a8                string1
+                0xffff0000000830b8                my_data
+                0xffff0000000830c0                access_label_test
+                0xffff0000000830e4                add_inst_test
+                0xffff000000083104                compare_and_return
+                0xffff000000083110                ands_test
+                0xffff000000083124                bitfield_test
+                0xffff00000008314c                cmp_cmn_test
+                0xffff00000008317c                csel_test
+                0xffff000000083190                bl_test
+                0xffff0000000831a8                my_test_data
+                0xffff0000000831b0                adrp_test
 
-.iplt           0xffff000000083a40        0x0
- .iplt          0xffff000000083a40        0x0 build/printk_c.o
+.iplt           0xffff000000083230        0x0
+ .iplt          0xffff000000083230        0x0 build/printk_c.o
 
-.rodata         0xffff000000083a40       0xb6
+.rodata         0xffff000000083230       0xd6
  *(.rodata)
- .rodata        0xffff000000083a40       0x57 build/printk_c.o
- *fill*         0xffff000000083a97        0x1 
- .rodata        0xffff000000083a98       0x49 build/kernel_c.o
- *fill*         0xffff000000083ae1        0x7 
- .rodata        0xffff000000083ae8        0xe build/boot_s.o
-                0xffff000000083ae8                el_string1
+ .rodata        0xffff000000083230       0x57 build/printk_c.o
+ *fill*         0xffff000000083287        0x1 
+ .rodata        0xffff000000083288        0xc build/irq_c.o
+ *fill*         0xffff000000083294        0x4 
+ .rodata        0xffff000000083298       0x59 build/kernel_c.o
+ *fill*         0xffff0000000832f1        0x7 
+ .rodata        0xffff0000000832f8        0xe build/boot_s.o
+                0xffff0000000832f8                el_string1
 
-.eh_frame       0xffff000000083af8      0x260
- .eh_frame      0xffff000000083af8       0xb0 build/printk_c.o
- .eh_frame      0xffff000000083ba8       0x18 build/irq_c.o
-                                         0x28 (size before relaxing)
- .eh_frame      0xffff000000083bc0       0x30 build/string_c.o
+.eh_frame       0xffff000000083308      0x268
+ .eh_frame      0xffff000000083308       0xb0 build/printk_c.o
+ .eh_frame      0xffff0000000833b8       0x20 build/irq_c.o
+                                         0x38 (size before relaxing)
+ .eh_frame      0xffff0000000833d8       0x30 build/string_c.o
                                          0x48 (size before relaxing)
- .eh_frame      0xffff000000083bf0       0x88 build/pl_uart_c.o
+ .eh_frame      0xffff000000083408       0x88 build/pl_uart_c.o
                                          0xa0 (size before relaxing)
- .eh_frame      0xffff000000083c78       0x58 build/memset_c.o
+ .eh_frame      0xffff000000083490       0x58 build/memset_c.o
                                          0x70 (size before relaxing)
- .eh_frame      0xffff000000083cd0       0x88 build/kernel_c.o
+ .eh_frame      0xffff0000000834e8       0x88 build/kernel_c.o
                                          0xa0 (size before relaxing)
 
-.rela.dyn       0xffff000000083d58        0x0
- .rela.iplt     0xffff000000083d58        0x0 build/printk_c.o
+.rela.dyn       0xffff000000083570        0x0
+ .rela.iplt     0xffff000000083570        0x0 build/printk_c.o
  .rela.text.boot
-                0xffff000000083d58        0x0 build/printk_c.o
- .rela.text     0xffff000000083d58        0x0 build/printk_c.o
+                0xffff000000083570        0x0 build/printk_c.o
+ .rela.text     0xffff000000083570        0x0 build/printk_c.o
 
-.data           0xffff000000083d58        0x0
+.data           0xffff000000083570        0x0
  *(.data)
- .data          0xffff000000083d58        0x0 build/printk_c.o
- .data          0xffff000000083d58        0x0 build/irq_c.o
- .data          0xffff000000083d58        0x0 build/string_c.o
- .data          0xffff000000083d58        0x0 build/pl_uart_c.o
- .data          0xffff000000083d58        0x0 build/device_c.o
- .data          0xffff000000083d58        0x0 build/memset_c.o
- .data          0xffff000000083d58        0x0 build/kernel_c.o
- .data          0xffff000000083d58        0x0 build/early_uart_s.o
- .data          0xffff000000083d58        0x0 build/entry_s.o
- .data          0xffff000000083d58        0x0 build/mm_s.o
- .data          0xffff000000083d58        0x0 build/memset_asm_s.o
- .data          0xffff000000083d58        0x0 build/boot_s.o
- .data          0xffff000000083d58        0x0 build/asm_test_s.o
-                0xffff000000083d58                . = ALIGN (0x8)
+ .data          0xffff000000083570        0x0 build/printk_c.o
+ .data          0xffff000000083570        0x0 build/irq_c.o
+ .data          0xffff000000083570        0x0 build/string_c.o
+ .data          0xffff000000083570        0x0 build/pl_uart_c.o
+ .data          0xffff000000083570        0x0 build/device_c.o
+ .data          0xffff000000083570        0x0 build/memset_c.o
+ .data          0xffff000000083570        0x0 build/kernel_c.o
+ .data          0xffff000000083570        0x0 build/early_uart_s.o
+ .data          0xffff000000083570        0x0 build/entry_s.o
+ .data          0xffff000000083570        0x0 build/mm_s.o
+ .data          0xffff000000083570        0x0 build/memset_asm_s.o
+ .data          0xffff000000083570        0x0 build/boot_s.o
+ .data          0xffff000000083570        0x0 build/asm_test_s.o
+                0xffff000000083570                . = ALIGN (0x8)
                 0xffff000000084000                . = ALIGN (0x2000)
 
 .data.rel.local
@@ -182,33 +184,33 @@ LOAD build/asm_test_s.o
 OUTPUT(build/benos.elf elf64-littleaarch64)
 LOAD linker stubs
 
-.debug_info     0x0000000000000000      0xd91
+.debug_info     0x0000000000000000      0xdbe
  .debug_info    0x0000000000000000      0x4bc build/printk_c.o
- .debug_info    0x00000000000004bc       0x48 build/irq_c.o
- .debug_info    0x0000000000000504      0x108 build/string_c.o
- .debug_info    0x000000000000060c      0x323 build/pl_uart_c.o
- .debug_info    0x000000000000092f      0x1be build/memset_c.o
- .debug_info    0x0000000000000aed      0x19c build/kernel_c.o
- .debug_info    0x0000000000000c89       0x2e build/early_uart_s.o
- .debug_info    0x0000000000000cb7       0x2e build/entry_s.o
- .debug_info    0x0000000000000ce5       0x2e build/mm_s.o
- .debug_info    0x0000000000000d13       0x2e build/memset_asm_s.o
- .debug_info    0x0000000000000d41       0x22 build/boot_s.o
- .debug_info    0x0000000000000d63       0x2e build/asm_test_s.o
+ .debug_info    0x00000000000004bc       0x62 build/irq_c.o
+ .debug_info    0x000000000000051e      0x108 build/string_c.o
+ .debug_info    0x0000000000000626      0x323 build/pl_uart_c.o
+ .debug_info    0x0000000000000949      0x1be build/memset_c.o
+ .debug_info    0x0000000000000b07      0x1af build/kernel_c.o
+ .debug_info    0x0000000000000cb6       0x2e build/early_uart_s.o
+ .debug_info    0x0000000000000ce4       0x2e build/entry_s.o
+ .debug_info    0x0000000000000d12       0x2e build/mm_s.o
+ .debug_info    0x0000000000000d40       0x2e build/memset_asm_s.o
+ .debug_info    0x0000000000000d6e       0x22 build/boot_s.o
+ .debug_info    0x0000000000000d90       0x2e build/asm_test_s.o
 
-.debug_abbrev   0x0000000000000000      0x607
+.debug_abbrev   0x0000000000000000      0x5f6
  .debug_abbrev  0x0000000000000000      0x1bd build/printk_c.o
- .debug_abbrev  0x00000000000001bd       0x2e build/irq_c.o
- .debug_abbrev  0x00000000000001eb       0xb7 build/string_c.o
- .debug_abbrev  0x00000000000002a2       0xea build/pl_uart_c.o
- .debug_abbrev  0x000000000000038c       0xe1 build/memset_c.o
- .debug_abbrev  0x000000000000046d      0x124 build/kernel_c.o
- .debug_abbrev  0x0000000000000591       0x14 build/early_uart_s.o
- .debug_abbrev  0x00000000000005a5       0x14 build/entry_s.o
- .debug_abbrev  0x00000000000005b9       0x14 build/mm_s.o
- .debug_abbrev  0x00000000000005cd       0x14 build/memset_asm_s.o
- .debug_abbrev  0x00000000000005e1       0x12 build/boot_s.o
- .debug_abbrev  0x00000000000005f3       0x14 build/asm_test_s.o
+ .debug_abbrev  0x00000000000001bd       0x53 build/irq_c.o
+ .debug_abbrev  0x0000000000000210       0xb7 build/string_c.o
+ .debug_abbrev  0x00000000000002c7       0xea build/pl_uart_c.o
+ .debug_abbrev  0x00000000000003b1       0xe1 build/memset_c.o
+ .debug_abbrev  0x0000000000000492       0xee build/kernel_c.o
+ .debug_abbrev  0x0000000000000580       0x14 build/early_uart_s.o
+ .debug_abbrev  0x0000000000000594       0x14 build/entry_s.o
+ .debug_abbrev  0x00000000000005a8       0x14 build/mm_s.o
+ .debug_abbrev  0x00000000000005bc       0x14 build/memset_asm_s.o
+ .debug_abbrev  0x00000000000005d0       0x12 build/boot_s.o
+ .debug_abbrev  0x00000000000005e2       0x14 build/asm_test_s.o
 
 .debug_aranges  0x0000000000000000      0x250
  .debug_aranges
@@ -240,47 +242,47 @@ LOAD linker stubs
  .debug_ranges  0x0000000000000000       0x30 build/printk_c.o
  .debug_ranges  0x0000000000000030       0x40 build/boot_s.o
 
-.debug_line     0x0000000000000000      0xaed
- .debug_line    0x0000000000000000      0x4ef build/printk_c.o
- .debug_line    0x00000000000004ef       0x40 build/irq_c.o
- .debug_line    0x000000000000052f       0x83 build/string_c.o
- .debug_line    0x00000000000005b2       0xe0 build/pl_uart_c.o
- .debug_line    0x0000000000000692        0x0 build/device_c.o
- .debug_line    0x0000000000000692       0xe3 build/memset_c.o
- .debug_line    0x0000000000000775       0x91 build/kernel_c.o
- .debug_line    0x0000000000000806       0x6c build/early_uart_s.o
- .debug_line    0x0000000000000872       0xa4 build/entry_s.o
- .debug_line    0x0000000000000916       0x3d build/mm_s.o
- .debug_line    0x0000000000000953       0x47 build/memset_asm_s.o
- .debug_line    0x000000000000099a       0xb1 build/boot_s.o
- .debug_line    0x0000000000000a4b       0xa2 build/asm_test_s.o
+.debug_line     0x0000000000000000      0xac6
+ .debug_line    0x0000000000000000      0x4ee build/printk_c.o
+ .debug_line    0x00000000000004ee       0x45 build/irq_c.o
+ .debug_line    0x0000000000000533       0x83 build/string_c.o
+ .debug_line    0x00000000000005b6       0xe0 build/pl_uart_c.o
+ .debug_line    0x0000000000000696        0x0 build/device_c.o
+ .debug_line    0x0000000000000696       0xe3 build/memset_c.o
+ .debug_line    0x0000000000000779       0x9d build/kernel_c.o
+ .debug_line    0x0000000000000816       0x6c build/early_uart_s.o
+ .debug_line    0x0000000000000882       0x68 build/entry_s.o
+ .debug_line    0x00000000000008ea       0x3d build/mm_s.o
+ .debug_line    0x0000000000000927       0x47 build/memset_asm_s.o
+ .debug_line    0x000000000000096e       0xb6 build/boot_s.o
+ .debug_line    0x0000000000000a24       0xa2 build/asm_test_s.o
 
-.debug_str      0x0000000000000000      0x382
- .debug_str     0x0000000000000000      0x1e5 build/printk_c.o
-                                        0x220 (size before relaxing)
- .debug_str     0x00000000000001e5       0x15 build/irq_c.o
-                                         0x8f (size before relaxing)
- .debug_str     0x00000000000001fa       0x2d build/string_c.o
-                                         0xb9 (size before relaxing)
- .debug_str     0x0000000000000227       0x46 build/pl_uart_c.o
-                                         0xda (size before relaxing)
- .debug_str     0x000000000000026d        0xd build/device_c.o
-                                         0x87 (size before relaxing)
- .debug_str     0x000000000000027a       0x3e build/memset_c.o
-                                         0xf5 (size before relaxing)
- .debug_str     0x00000000000002b8       0x6d build/kernel_c.o
-                                        0x11e (size before relaxing)
- .debug_str     0x0000000000000325       0x1d build/early_uart_s.o
+.debug_str      0x0000000000000000      0x3a8
+ .debug_str     0x0000000000000000      0x1f9 build/printk_c.o
+                                        0x234 (size before relaxing)
+ .debug_str     0x00000000000001f9       0x15 build/irq_c.o
+                                         0xaa (size before relaxing)
+ .debug_str     0x000000000000020e       0x2d build/string_c.o
+                                         0xcd (size before relaxing)
+ .debug_str     0x000000000000023b       0x46 build/pl_uart_c.o
+                                         0xee (size before relaxing)
+ .debug_str     0x0000000000000281        0xd build/device_c.o
+                                         0x9b (size before relaxing)
+ .debug_str     0x000000000000028e       0x3e build/memset_c.o
+                                        0x109 (size before relaxing)
+ .debug_str     0x00000000000002cc       0x7f build/kernel_c.o
+                                        0x144 (size before relaxing)
+ .debug_str     0x000000000000034b       0x1d build/early_uart_s.o
                                          0x35 (size before relaxing)
- .debug_str     0x0000000000000342        0xc build/entry_s.o
+ .debug_str     0x0000000000000368        0xc build/entry_s.o
                                          0x30 (size before relaxing)
- .debug_str     0x000000000000034e        0x9 build/mm_s.o
+ .debug_str     0x0000000000000374        0x9 build/mm_s.o
                                          0x2d (size before relaxing)
- .debug_str     0x0000000000000357       0x11 build/memset_asm_s.o
+ .debug_str     0x000000000000037d       0x11 build/memset_asm_s.o
                                          0x35 (size before relaxing)
- .debug_str     0x0000000000000368        0xb build/boot_s.o
+ .debug_str     0x000000000000038e        0xb build/boot_s.o
                                          0x2f (size before relaxing)
- .debug_str     0x0000000000000373        0xf build/asm_test_s.o
+ .debug_str     0x0000000000000399        0xf build/asm_test_s.o
                                          0x33 (size before relaxing)
 
 .comment        0x0000000000000000       0x24

@@ -43,12 +43,15 @@ void panic(void)
 
 void bad_mode(struct pt_regs *regs, int reason, unsigned int esr)
 {
-#if 0
-	printk("Bad mode for %s handler detected, far:0x%x esr:0x%x - %s\n",
-			bad_mode_handler[reason], read_sysreg(far_el1),
-			esr, esr_get_class_string(esr));
+#if 1
+	uart_send_string("bad mode\n");
+	while(1);
+	
+	//printk("Bad mode for %s handler detected, far:0x%x esr:0x%x - %s\n",
+			//bad_mode_handler[reason], read_sysreg(far_el1),
+			//esr, esr_get_class_string(esr));
 
-	parse_esr(esr);
+	//parse_esr(esr);
 
 	panic();
 #endif
@@ -81,6 +84,7 @@ void kernel_main(void)
 {
 	uart_init();
 	uart_send_string("Welcome BenOS!\r\n");
+	trigger_alignment();
 
 	/* my test*/
 	my_ldr_str_test();

@@ -101,10 +101,13 @@ el1_entry:
 	ldr x5, =(3UL << 20);
 	msr cpacr_el1, x5
 
-	/* 璁剧疆寮傚父鍚戦噺琛ㄥ熀鍦板潃鍒皏bar瀵勫瓨鍣?*/
-	/*ldr     x5, =vectors
+        ldr     x5, =vectors
+	ldr x2, =CONFIG_EXEC_ADDR
+	sub x2, x5, x2
+	ldr x3, =CONFIG_LOAD_ADDR
+        add x5, x2, x3
 	msr     vbar_el1, x5
-	isb*/
+	isb
 
 
 
@@ -230,3 +233,5 @@ create_page_table:
 
     mov x30, x25
     ret
+
+

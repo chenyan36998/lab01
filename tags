@@ -142,31 +142,6 @@ SYSTEM_TIMER_IRQ_0	include/asm/irq.h	/^#define SYSTEM_TIMER_IRQ_0	/;"	d	language
 SYSTEM_TIMER_IRQ_1	include/asm/irq.h	/^#define SYSTEM_TIMER_IRQ_1	/;"	d	language:C++
 SYSTEM_TIMER_IRQ_2	include/asm/irq.h	/^#define SYSTEM_TIMER_IRQ_2	/;"	d	language:C++
 SYSTEM_TIMER_IRQ_3	include/asm/irq.h	/^#define SYSTEM_TIMER_IRQ_3	/;"	d	language:C++
-S_FP	src/entry.S	/^#define S_FP /;"	d	language:CPreProcessor	file:
-S_FRAME_SIZE	src/entry.S	/^#define S_FRAME_SIZE /;"	d	language:CPreProcessor	file:
-S_LR	src/entry.S	/^#define S_LR /;"	d	language:CPreProcessor	file:
-S_PC	src/entry.S	/^#define S_PC /;"	d	language:CPreProcessor	file:
-S_PSTATE	src/entry.S	/^#define S_PSTATE /;"	d	language:CPreProcessor	file:
-S_SP	src/entry.S	/^#define S_SP /;"	d	language:CPreProcessor	file:
-S_X0	src/entry.S	/^#define S_X0 /;"	d	language:CPreProcessor	file:
-S_X1	src/entry.S	/^#define S_X1 /;"	d	language:CPreProcessor	file:
-S_X10	src/entry.S	/^#define S_X10 /;"	d	language:CPreProcessor	file:
-S_X12	src/entry.S	/^#define S_X12 /;"	d	language:CPreProcessor	file:
-S_X14	src/entry.S	/^#define S_X14 /;"	d	language:CPreProcessor	file:
-S_X16	src/entry.S	/^#define S_X16 /;"	d	language:CPreProcessor	file:
-S_X18	src/entry.S	/^#define S_X18 /;"	d	language:CPreProcessor	file:
-S_X2	src/entry.S	/^#define S_X2 /;"	d	language:CPreProcessor	file:
-S_X20	src/entry.S	/^#define S_X20 /;"	d	language:CPreProcessor	file:
-S_X22	src/entry.S	/^#define S_X22 /;"	d	language:CPreProcessor	file:
-S_X24	src/entry.S	/^#define S_X24 /;"	d	language:CPreProcessor	file:
-S_X26	src/entry.S	/^#define S_X26 /;"	d	language:CPreProcessor	file:
-S_X28	src/entry.S	/^#define S_X28 /;"	d	language:CPreProcessor	file:
-S_X3	src/entry.S	/^#define S_X3 /;"	d	language:CPreProcessor	file:
-S_X4	src/entry.S	/^#define S_X4 /;"	d	language:CPreProcessor	file:
-S_X5	src/entry.S	/^#define S_X5 /;"	d	language:CPreProcessor	file:
-S_X6	src/entry.S	/^#define S_X6 /;"	d	language:CPreProcessor	file:
-S_X7	src/entry.S	/^#define S_X7 /;"	d	language:CPreProcessor	file:
-S_X8	src/entry.S	/^#define S_X8 /;"	d	language:CPreProcessor	file:
 TABLE_SHIFT	include/mm.h	/^#define TABLE_SHIFT /;"	d	language:C++
 TIMER_CNTRL0	include/asm/arm_local_reg.h	/^#define TIMER_CNTRL0 /;"	d	language:C++
 TIMER_CNTRL1	include/asm/arm_local_reg.h	/^#define TIMER_CNTRL1 /;"	d	language:C++
@@ -241,7 +216,6 @@ el0_sync_invalid	src/entry.S	/^el0_sync_invalid:$/;"	l	language:Asm
 el1_entry	src/boot.S	/^el1_entry:$/;"	l	language:Asm
 el1_error_invalid	src/entry.S	/^el1_error_invalid:$/;"	l	language:Asm
 el1_fiq_invalid	src/entry.S	/^el1_fiq_invalid:$/;"	l	language:Asm
-el1_irq	src/entry.S	/^el1_irq:$/;"	l	language:Asm
 el1_irq_invalid	src/entry.S	/^el1_irq_invalid:$/;"	l	language:Asm
 el1_sync_invalid	src/entry.S	/^el1_sync_invalid:$/;"	l	language:Asm
 el2_entry	src/boot.S	/^el2_entry:$/;"	l	language:Asm
@@ -259,10 +233,6 @@ irq_handle	src/irq.c	/^void irq_handle(void)$/;"	f	language:C	typeref:typename:v
 is_digit	src/printk.c	/^#define is_digit(/;"	d	language:C	file:	signature:(c)
 k_stack_end	src/linker.ld	/^     k_stack_end = .;$/;"	s	language:LdScript
 k_stack_start	src/linker.ld	/^        k_stack_start = .;$/;"	s	language:LdScript
-kernel_entry	src/entry.S	/^	.macro kernel_entry$/;"	m	language:Asm
-kernel_entry	src/entry.S	/^kernel_entry:$/;"	l	language:Asm
-kernel_exit	src/entry.S	/^	.macro kernel_exit$/;"	m	language:Asm
-kernel_exit	src/entry.S	/^kernel_exit:$/;"	l	language:Asm
 kernel_main	src/kernel.c	/^void kernel_main(void)$/;"	f	language:C	typeref:typename:void	signature:(void)
 ksdev	device.c	/^const region_t SHARED_RO ksdev[] = {$/;"	v	language:C	typeref:typename:const region_t SHARED_RO[]
 ksram	device.c	/^const region_t SHARED_RO ksram[] = {$/;"	v	language:C	typeref:typename:const region_t SHARED_RO[]
@@ -303,6 +273,7 @@ size	device.h	/^    uint64_t size;$/;"	m	language:C++	struct:_region	typeref:typ
 size_t	src/memset.c	/^typedef unsigned int size_t;$/;"	t	language:C	typeref:typename:unsigned int	file:
 size_t	src/string.c	/^typedef unsigned int size_t;$/;"	t	language:C	typeref:typename:unsigned int	file:
 string1	src/asm_test.S	/^string1:$/;"	l	language:Asm
+string_test	src/entry.S	/^string_test:$/;"	l	language:Asm
 strlen	src/string.c	/^size_t strlen(const char *s)$/;"	f	language:C	typeref:typename:size_t	signature:(const char * s)
 tempstack	src/boot.S	/^tempstack:$/;"	l	language:Asm
 trigger_alignment	src/entry.S	/^trigger_alignment:$/;"	l	language:Asm
