@@ -4,7 +4,7 @@
 
 void irq_handle(void)
 {
-	printk("irq handle\n");
+//	printk("irq handle\n");
 #if 0
 	unsigned int irq = readl(ARM_LOCAL_IRQ_SOURCE0);
 
@@ -16,6 +16,6 @@ void irq_handle(void)
 		printk("Unknown pending irq: %x\r\n", irq);
 	}
 #else
-	//gic_handle_irq();
+	gic_handle_irq();
 #endif
 }
